@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>草莓冒险 🍓</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="gameContainer">
+        <canvas id="gameCanvas" width="1280" height="720"></canvas>
+        
+        <!-- Mobile Touch Controls -->
+        <div id="mobileControls" class="mobile-controls">
+            <button id="leftBtn" class="control-btn">←</button>
+            <button id="rightBtn" class="control-btn">→</button>
+            <button id="jumpBtn" class="control-btn">↑</button>
+        </div>
+        
+        <!-- HUD -->
+        <div id="hud" class="hud">
+            <div class="hud-item">关卡: <span id="levelDisplay">1</span></div>
+            <div class="hud-item">分数: <span id="scoreDisplay">0</span></div>
+            <div class="hud-item">生命: <span id="livesDisplay">3</span></div>
+            <div class="hud-item">时间: <span id="timeDisplay">--</span></div>
+        </div>
+        
+        <!-- Game States -->
+        <div id="menuScreen" class="game-screen">
+            <h1>🍓 草莓冒险 🍓</h1>
+            <p>帮助小女孩收集草莓并到达旗帜！</p>
+            <button id="startBtn" class="game-btn">开始冒险！</button>
+            <button id="muteBtn" class="game-btn">🔊 声音: 开</button>
+        </div>
+        
+        <div id="pauseScreen" class="game-screen hidden">
+            <h2>游戏暂停</h2>
+            <button id="resumeBtn" class="game-btn">继续</button>
+            <button id="menuBtn" class="game-btn">返回菜单</button>
+        </div>
+        
+        <div id="levelCompleteScreen" class="game-screen hidden">
+            <h2>🎉 太棒了！🎉</h2>
+            <p>关卡完成！</p>
+            <div id="confetti"></div>
+            <button id="nextLevelBtn" class="game-btn">下一关</button>
+            <button id="menuBtn2" class="game-btn">返回菜单</button>
+        </div>
+        
+        <div id="gameOverScreen" class="game-screen hidden">
+            <h2>试试不同的路线！</h2>
+            <p>不要放弃！你能做到的！</p>
+            <button id="retryBtn" class="game-btn">再试一次</button>
+            <button id="menuBtn3" class="game-btn">返回菜单</button>
+        </div>
+        
+        <div id="allClearScreen" class="game-screen hidden">
+            <h2>🎊 恭喜！🎊</h2>
+            <p>你完成了草莓冒险！</p>
+            <p>你是一个真正的冒险家！</p>
+            <div id="finalConfetti"></div>
+            <button id="playAgainBtn" class="game-btn">再玩一次</button>
+        </div>
+    </div>
+    
+    <script type="module" src="game.js"></script>
+</body>
+</html> 
