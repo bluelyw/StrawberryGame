@@ -4,6 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>草莓冒险 - 简化版</title>
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ERJQSXTBGE"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-ERJQSXTBGE');
+        
+        // Track page views
+        gtag('event', 'page_view', {
+            page_title: '草莓冒险 - 简化版',
+            page_location: window.location.href
+        });
+        
+        // Track all click events
+        document.addEventListener('DOMContentLoaded', function() {
+            // Track button clicks
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    gtag('event', 'button_click', {
+                        button_text: this.textContent,
+                        button_id: this.id,
+                        page_title: '草莓冒险 - 简化版'
+                    });
+                });
+            });
+            
+            // Track link clicks
+            const links = document.querySelectorAll('a');
+            links.forEach(link => {
+                link.addEventListener('click', function() {
+                    gtag('event', 'link_click', {
+                        link_text: this.textContent,
+                        link_href: this.href,
+                        page_title: '草莓冒险 - 简化版'
+                    });
+                });
+            });
+        });
+        
+        // Track scroll events
+        let scrollTracked = false;
+        window.addEventListener('scroll', function() {
+            const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+            
+            // Track when user scrolls to bottom (90% or more)
+            if (scrollPercent >= 90 && !scrollTracked) {
+                scrollTracked = true;
+                gtag('event', 'scroll_to_bottom', {
+                    page_title: '草莓冒险 - 简化版',
+                    scroll_percent: scrollPercent
+                });
+            }
+            
+            // Track scroll milestones (25%, 50%, 75%)
+            if (scrollPercent >= 25 && scrollPercent < 26) {
+                gtag('event', 'scroll_milestone', {
+                    page_title: '草莓冒险 - 简化版',
+                    milestone: '25%'
+                });
+            } else if (scrollPercent >= 50 && scrollPercent < 51) {
+                gtag('event', 'scroll_milestone', {
+                    page_title: '草莓冒险 - 简化版',
+                    milestone: '50%'
+                });
+            } else if (scrollPercent >= 75 && scrollPercent < 76) {
+                gtag('event', 'scroll_milestone', {
+                    page_title: '草莓冒险 - 简化版',
+                    milestone: '75%'
+                });
+            }
+        });
+    </script>
     <style>
         body {
             font-family: 'Comic Sans MS', cursive, sans-serif;
